@@ -1,0 +1,10 @@
+body
+{
+    background: black;
+}
+
+#scene
+{
+    display: block;
+    margin: auto;
+}
