@@ -2,5 +2,6 @@
 Game course by PushToWeb Hungarian based company
 
 Commits: 
-I. Init
-II. Uploading base idea
+I. Init\n
+II. Uploading base idea\n
+III. Handling files using Webpack\n
