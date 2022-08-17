@@ -1,4 +1,7 @@
-export function createGameScene(gameScene)
+import {createWinScene} from "./WinScene";
+import {createLoseScene} from "./LoseScene"
+
+export function createGameScene(gameScene, app)
 {
     const background = new PIXI.Container();
 				gameScene.addChild(background);
@@ -95,6 +98,10 @@ export function createGameScene(gameScene)
 								enemies.removeChild(enemy);
 							}
 						}
+						if(enemies.children.length < 1)
+						{
+							createWinScene(gameScene, app)
+						}
 					}
 
 					for (const enemy of enemies.children) {
@@ -110,23 +117,11 @@ export function createGameScene(gameScene)
 							player_lives -=1;
 							sprite.position.x = sprite.position.x;
 							sprite.position.y = sprite.position.y-60;
+							if(player_lives<1)
+							{
+								createLoseScene(gameScene, app);
+							}
 						}
 					}
 				};
 }
-
-const loseScene = new PIXI.Container();
-			const loseStyle = new PIXI.TextStyle({fill: "#000000", fontSize: 30});
-			const lostfield = new PIXI.Text("You lost!",loseStyle);
-			lostfield.scale.x = 2;
-			lostfield.position.x = 100;
-			lostfield.position.y = 100;
-			loseScene.addChild(lostfield);
-
-			const winSchene = new PIXI.Container();
-			const winStyle = new PIXI.TextStyle({fill: "#ffffff",fontSize: 30});
-			const winField = new PIXI.Text("You won! Hurray!",winStyle);
-			winField.scale.x = 2;
-			winField.position.x = 50;
-			winField.position.y = 100;
-			winSchene.addChild(winField);

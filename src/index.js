@@ -12,7 +12,7 @@ const app = new PIXI.Application({
 
 
 const gameScene = new PIXI.Container();
-const updateScene = createGameScene(gameScene);
+const updateScene = createGameScene(gameScene, app);
 
 let state = "mainMenu";
 
